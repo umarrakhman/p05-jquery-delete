@@ -1,0 +1,497 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel JQuery</title>
+   <style type="text/css">
+       @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wadah-navigasi{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navigasi{
+    position: fixed;
+    font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow:2px 2px 12px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navigasi .wadah-navigasi{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.navigasi ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigasi a{
+    color: black;
+    text-decoration: none;
+    padding: 7px 15px;
+}
+
+.navigasi a:hover{
+    color: #2C3333;
+}
+
+.navigasi .aktif{
+    font-weight: bold;
+}
+
+.logo{
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu{
+    position: relative;
+    display: inline-block;
+}
+
+.logo-mini{
+    font-size: 13px;
+}
+
+.isi-menu{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.isi-menu a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.isi-menu a:hover{
+    background-color: #f1f1f1
+}
+
+.menu:hover .isi-menu {
+    display: block;
+}
+
+h1{
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+p{
+    margin-top: 15px;
+}
+
+h1:hover{
+    color: #040303;
+    letter-spacing: 2px;
+}
+
+p, h2{
+    color: black;
+}
+
+.wadah-kartu{
+    margin-top: 0px;
+}
+
+.foto-profil, .foto-sosmed{
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 5px;
+    background: white;
+    margin: 15px;
+    transition: 0.2s;
+    opacity: 90%;
+    width: 4cm;
+    height: 4cm;
+    object-fit: cover;
+    margin-top: 50px;
+}
+
+.foto-profil:hover, .foto-sosmed:hover{
+    transform: scale(1.2);
+    opacity: 100%;
+    bbox-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.kartu{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: auto;
+    max-width: 400px;
+    border-radius: 4px;
+}
+
+.kartu:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1024px;
+    margin-top: 30px;
+}
+
+th{
+    background-color: #040303;
+}
+
+td{
+    background-color: brown;
+}
+
+td, th{
+    border: 1px solid grey;
+    color: #dddddd;
+    padding: 8px;
+}
+
+td:first-child{
+    text-align: center;
+}
+
+td:hover{
+    background-color: black;
+}
+
+.judul{
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.judul-tabel{
+    background-color: whitesmoke;
+}
+
+.tengah{
+    text-align: center;
+}
+
+.konten{
+    margin-top: 170px;
+}
+
+.tombol{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    min-width: 80px;
+}
+
+.tombol:hover{
+    background-color: #45a049;
+}
+
+.tombol-merah{
+    background-color: #e42528;
+}
+
+.tombol-merah:hover{
+    background-color: #cf2124;
+}
+
+#kontak{
+    margin-bottom: 20px;
+}
+
+.wadah-tentang-saya, .wadah-kontak{
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
+
+#tentang-saya{
+    font-size: 28px;
+}
+
+.wadah-tentang-saya p{
+    text-align: justify;
+}
+
+.wadah-sertifikat{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 250px;
+}
+
+.sertifikat{
+    margin: 8px;
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.sertifikat:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.panjang{
+    width: 100cm;
+}
+
+
+.foto-sertifikat{
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    transition: 0.3s;
+}
+
+.foto-sertifikat:hover{
+    transform: scale(1.1);
+}
+
+.foto-panjang{
+    width: 8cm;
+    height: 7.5cm;
+    margin-left: 47px;
+}
+
+.nama-sertifikat{
+    padding: 15px;
+    text-align: center;
+}
+
+#kontak{
+    margin-top: 1000px;
+}
+
+#sertifikat{
+    font-size: 28px;
+}
+
+form{
+    margin-top: 20px;
+}
+
+input[type=text], input[type=email], textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+textarea{
+    height: 150px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    height: 200px;
+    color: white;
+    background-color: #f2d6d6;
+    align-items: center;
+}
+
+.pembungkus-catatan-kaki{
+    margin-bottom: 28px;
+}
+
+.catatan-kaki{
+    margin-top: 120px;
+    margin-left: 38px;
+}
+
+.sosial-media{
+    width: 40px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 640px){
+    .logo{
+        display: none;
+    }
+
+    .navigasi a{
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .isi-menu a{
+        font-size: 11px;
+    }
+
+    .kartu{
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .wadah-tentang-saya, .wadah-kontak{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .tanda-tangan{
+        margin-right: 20px;
+    }
+
+    .foto-panjang{
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+    }
+
+    .panjang{
+        width: 95%;
+    }
+
+    .sertifikat{
+        min-width: 320px;
+        margin-left: -27px;
+    }
+
+    .wadah-kontak{
+        margin-top: 20px;
+    }
+}
+   </style>
+</head>
+<body>
+    <h2 class="judul">The Top 10 of My Best Friend</h2>
+    <table align="center">
+        <tr class="judul-tabel">
+            <th>No</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Aksi</th>
+        </tr>
+        <tr id="baris__1" class="baris">
+            <td>1</td>
+            <td class="data" id="nama_mhs__1">Viona Rahmawati</td>
+            <td class="data" id="alamat__1">Kaligawe</td>
+            <td class="data tengah" id="hapus__1">Hapus</td>
+        </tr>
+        <tr id="baris__2" class="baris">
+            <td>2</td>
+            <td class="data" id="nama_mhs__2">Sebastian</td>
+            <td class="data" id="alamat__2">Tengah tani</td>
+            <td class="data tengah" id="hapus__2">Hapus</td>
+        </tr>
+        <tr id="baris__3" class="baris">
+            <td>3</td>
+            <td class="data" id="nama_mhs__3">Syaeful Annas</td>
+            <td class="data" id="alamat__3">Sarajaya</td>
+            <td class="data tengah" id="hapus__3">Hapus</td>
+        </tr>
+        <tr id="baris__4" class="baris">
+            <td>4</td>
+            <td class="data" id="nama_mhs__4">Gilang</td>
+            <td class="data" id="alamat__4">Weru</td>
+            <td class="data tengah" id="hapus__4">Hapus</td>
+        </tr>
+        <tr id="baris__5" class="baris">
+            <td>5</td>
+            <td class="data" id="nama_mhs__5">Yusuf Sidiq</td>
+            <td class="data" id="alamat__5">babakan</td>
+            <td class="data tengah" id="hapus__5">Hapus</td>
+        </tr>
+        <tr id="baris__6" class="baris">
+            <td>6</td>
+            <td class="data" id="nama_mhs__6">Temu Asih</td>
+            <td class="data" id="alamat__6">Sumber</td>
+            <td class="data tengah" id="hapus__6">Hapus</td>
+        </tr>
+        <tr id="baris__7" class="baris">
+            <td>7</td>
+            <td class="data" id="nama_mhs__7">Musfiq</td>
+            <td class="data" id="alamat__7">Weru</td>
+            <td class="data tengah" id="hapus__7">Hapus</td>
+        </tr>
+        <tr id="baris__8" class="baris">
+            <td>8</td>
+            <td class="data" id="nama_mhs__8">Sofi Nurul</td>
+            <td class="data" id="alamat__8">Sumber</td>
+            <td class="data tengah" id="hapus__8">Hapus</td>
+        </tr>
+        <tr id="baris__9" class="baris">
+            <td>9</td>
+            <td class="data" id="nama_mhs__9">Khusnul Ma'Arif</td>
+            <td class="data" id="alamat__9">Brebes</td>
+            <td class="data tengah" id="hapus__9">Hapus</td>
+        </tr>
+        <tr id="baris__10" class="baris">
+            <td>10</td>
+            <td class="data" id="nama_mhs__10">Sholeh</td>
+            <td class="data" id="alamat__10">Siledu</td>
+            <td class="data tengah" id="hapus__10">Hapus</td>
+        </tr>
+    </table><br>
+    <div class="tombol">
+        <a href="https://umarrakhman.github.io/"><button type="submit">Beranda</button></a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    $('.data').click(function(){
+        let isi = $(this).text();
+        let tid = $(this).prop('id');
+        let rid = tid.split('__');
+        let id_baris = rid[1];
+        let nama_mhs = $('#nama_mhs__'+id_baris).text();
+
+        if(isi=='Hapus'){
+            let konfirmasi = confirm(`Anda yakin ingin menghapus data atas nama ${nama_mhs} ??`);
+            if(!konfirmasi) return;
+
+            $('#baris__'+id_baris).fadeOut();
+        }else{
+            alert("Anda mengklik kolom yang berisi : " + $(this).html() + "!");
+        }
+    })
+})
+    </script>
+</body>
+</html>
